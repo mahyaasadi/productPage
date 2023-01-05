@@ -9,7 +9,7 @@ window.onload = function () {
         currentIndex = newIndex;
         mainPhoto.src = image.src;
     };
-
+    // console.log(images);
     images.forEach(function (image, index) {
         image.addEventListener("click", (event) => {
             document.getElementById("clickSlideContainer").style.display = 'flex';

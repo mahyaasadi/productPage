@@ -80,7 +80,7 @@ hr {
   border-radius: 10px;
 }
 #mainProductPic:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .mainPicContainer {
   display: flex;
@@ -92,12 +92,26 @@ hr {
   justify-content: space-between;
   margin-top: 1em;
   width: 20em;
+  height: 5em;
 }
 .productThumbnail {
   width: 4em;
   height: 4em;
   border-radius: 10px;
   transition: 0.4s;
+}
+.clickProductThumbnail {
+  width: 5em;
+  height: 5em;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+.clickProductThumbnail:hover {
+  opacity: 0.6;
+  border: 2px solid #eb8d00;
+  margin: 3px;
+  width: 6em;
+  height: 6em;
 }
 .productThumbnail:hover {
   opacity: 0.6;
@@ -118,7 +132,7 @@ hr {
   font-weight: 700;
   font-size: 30px;
   width: 70%;
-  margin-top: 10px;
+  margin: 0;
 }
 .textFollowup {
   color: #828282;
@@ -214,7 +228,7 @@ hr {
   border-radius: 50%;
   padding: 10px;
   position: absolute;
-  bottom: 9rem;
+  bottom: 12rem;
   left: -20px;
   cursor: pointer;
 }
@@ -224,21 +238,21 @@ hr {
   border-radius: 50%;
   padding: 10px;
   position: absolute;
-  bottom: 9rem;
+  bottom: 12rem;
   right: -20px;
   cursor: pointer;
 }
 #clickMainProductPic {
-  width: 20em;
-  height: 20em;
+  width: 25em;
+  height: 25em;
   border-radius: 10px;
 }
 #clickMainProductPic:hover {
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 .clickPicOptions {
   margin-top: 15px;
-  height: 5em;
+  height: 6em;
 }
 @media screen and (max-width: 920px) {
   .menuIcon {
