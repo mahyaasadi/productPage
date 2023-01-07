@@ -1,15 +1,21 @@
 window.onload = function () {
     let images = Array.from(document.getElementsByClassName("imgCarousel"));
-    let mainPhoto = document.getElementById("clickMainProductPic");
+    let mainPhotos = Array.from(document.getElementsByClassName("clickMainProductPic"));
     let clickImages = Array.from(document.getElementsByClassName("clickImgCarousel"));
 
     let currentIndex = 0;
 
+    function setMainPhoto(image) {
+        mainPhotos.forEach(mainPhoto => {
+            mainPhoto.src = image.src
+        })
+    }
+
     function updateImage(image, newIndex) {
         currentIndex = newIndex;
-        mainPhoto.src = image.src;
+        setMainPhoto(image)
     };
-    // console.log(images);
+
     images.forEach(function (image, index) {
         image.addEventListener("click", (event) => {
             document.getElementById("clickSlideContainer").style.display = 'flex';
@@ -21,30 +27,39 @@ window.onload = function () {
         document.getElementById("clickSlideContainer").style.display = 'none';
     })
 
-    document.getElementById("preButton").addEventListener("click", () => {
-        if (currentIndex % 4 > 0) {
-            currentIndex -= 1;
-            let newImage = images[currentIndex];
-            mainPhoto.src = newImage.src;
-        }
-        else {
-            currentIndex = clickImages.length - 1;
-            let newImage = images[currentIndex];
-            mainPhoto.src = newImage.src;
-        }
+    let preButtons = document.querySelectorAll(".preButton, .mediaPreButton");
+    preButtons.forEach(element => {
+        element.addEventListener('click', () => {
+            if (currentIndex % 4 > 0) {
+                currentIndex -= 1;
+                let newImage = images[currentIndex];
+                setMainPhoto(newImage)
+            }
+            else {
+                currentIndex = clickImages.length - 1;
+                let newImage = images[currentIndex];
+                setMainPhoto(newImage)
+            }
+        });
     })
 
-    document.getElementById("nextButton").addEventListener("click", () => {
-        if (currentIndex % 4 < 3) {
-            currentIndex += 1;
-            let newImage = images[currentIndex];
-            mainPhoto.src = newImage.src;
-        }
-        else {
-            currentIndex = 0;
-            let newImage = images[currentIndex];
-            mainPhoto.src = newImage.src;
-        }
+    let nextButtons = document.querySelectorAll(".nextButton, .mediaNextButton");
+    nextButtons.forEach(element => {
+        element.addEventListener('click', () => {
+            if (currentIndex % 4 < 3) {
+                currentIndex += 1;
+                let newImage = images[currentIndex];
+                setMainPhoto(newImage)
+            }
+            else {
+                currentIndex = 0;
+                let newImage = images[currentIndex];
+                setMainPhoto(newImage)
+            }
+        });
     })
 
+    document.getElementsByClassName("menuIcon")[0].addEventListener("click", () => {
+        document.getElementsByClassName("mediaNavMenu")[0].style.display = 'flex'
+    })
 }
