@@ -238,17 +238,6 @@ hr {
   right: -20px;
   cursor: pointer;
 }
-
-/* #mobileViewSlideContainer { */
-display: none;
-/* } */
-.mobileViewProductPics {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .mediaPreButton {
   border: 1px solid #e7e5de;
   background-color: #e7e5de;
@@ -360,7 +349,7 @@ display: none;
     display: none;
   }
   .productDetail {
-    width: 50%;
+    width: 40%;
   }
   .textTitle {
     width: 100%;
