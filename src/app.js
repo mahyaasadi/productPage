@@ -1,21 +1,22 @@
-// window.onload = function () {
 let images = Array.from(document.getElementsByClassName("imgCarousel"));
 let mainPhotos = Array.from(document.getElementsByClassName("clickMainProductPic"));
 let clickImages = Array.from(document.getElementsByClassName("clickImgCarousel"));
-
 let currentIndex = 0;
 
+//setting the chosen image as the main pic
 function setMainPhoto(image) {
     mainPhotos.forEach(mainPhoto => {
         mainPhoto.src = image.src
     })
 }
 
+//updating the main pic with the chosen image
 function updateImage(image, newIndex) {
     currentIndex = newIndex;
     setMainPhoto(image)
 };
 
+//showing the slideContainer when clicking on each image & updating the main img
 images.forEach(function (image, index) {
     image.addEventListener("click", (event) => {
         document.getElementById("clickSlideContainer").style.display = 'flex';
@@ -23,10 +24,12 @@ images.forEach(function (image, index) {
     })
 })
 
+//closing the slideContainer when clicking on closeIcon
 document.getElementsByClassName("closeIcon")[0].addEventListener("click", () => {
     document.getElementById("clickSlideContainer").style.display = 'none';
 })
 
+//preButton functionality & looping through images when reaching the first one
 let preButtons = document.querySelectorAll(".preButton, .mediaPreButton");
 preButtons.forEach(element => {
     element.addEventListener('click', () => {
@@ -43,6 +46,7 @@ preButtons.forEach(element => {
     });
 })
 
+//nextButton functionality & looping through images when reaching the last one
 let nextButtons = document.querySelectorAll(".nextButton, .mediaNextButton");
 nextButtons.forEach(element => {
     element.addEventListener('click', () => {
@@ -59,7 +63,7 @@ nextButtons.forEach(element => {
     });
 })
 
-document.getElementsByClassName("menuIcon")[0].addEventListener("click", () => {
-    document.getElementsByClassName("mediaNavMenu")[0].style.display = 'flex'
-})
-// }
+//menuIcon on mobile design
+// document.getElementsByClassName("menuIcon")[0].addEventListener("click", () => {
+//     document.getElementsByClassName("mediaNavMenu")[0].style.display = 'flex'
+// })
